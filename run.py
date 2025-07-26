@@ -55,4 +55,6 @@ if DEBUG:
     app.logger.info('DBMS             = ' + app_config.SQLALCHEMY_DATABASE_URI)
 
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 5000))  # Lấy port từ biến môi trường (Render sẽ gán)
+    app.run(host="0.0.0.0", port=port)
+
